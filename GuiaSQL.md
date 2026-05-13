@@ -1,5 +1,8 @@
 # PostgreSQL
 Guía básica de PostgreSQL para sentirte como todo un DBA que domina el PGAdmin y trabaja para una gran empresa
+---
+##
+---
 
 # Capitulo 1. ¿Cómo entrar a PostgreSQL?:
 
@@ -281,15 +284,15 @@ ALTER USER fulano WITH PASSWORD 'nuevaClave456';
 ALTER USER fulano WITH SUPERUSER;
 ```
 
-## y borro?
+## y como lo borro?
 
 ```sql
-DROP USER juan;
+DROP USER fulano;
 ```
 
 ---
 
-## ¿Cómo creo un fulano_de_tal?
+## ¿Cómo creo un ROL?
 
 ```sql
 CREATE ROLE nombre_rol;
@@ -309,6 +312,8 @@ CREATE ROLE nombre_rol;
 | CREATEROLE | Puede crear otros roles |
 | INHERIT | Hereda permisos de otros roles |
 
+---
+##
 ---
 
 ## ¿Cómo editar un usuario o rol?
