@@ -1,5 +1,8 @@
-# PostgreSQL
+# PostgreSQL 
 Guía básica de PostgreSQL para sentirte como todo un DBA que domina el PGAdmin y trabaja para una gran empresa
+---
+<img width="100" height="100" alt="Chest" src="https://github.com/user-attachments/assets/b4008141-9dde-4e3e-b28c-81ab3701c642" /><img width="100" height="100" alt="Chest" src="https://github.com/user-attachments/assets/b4008141-9dde-4e3e-b28c-81ab3701c642" /><img width="100" height="100" alt="Chest" src="https://github.com/user-attachments/assets/b4008141-9dde-4e3e-b28c-81ab3701c642" /><img width="100" height="100" alt="Chest" src="https://github.com/user-attachments/assets/b4008141-9dde-4e3e-b28c-81ab3701c642" /><img width="100" height="100" alt="Chest" src="https://github.com/user-attachments/assets/b4008141-9dde-4e3e-b28c-81ab3701c642" /><img width="100" height="100" alt="Chest" src="https://github.com/user-attachments/assets/b4008141-9dde-4e3e-b28c-81ab3701c642" /><img width="100" height="100" alt="Chest" src="https://github.com/user-attachments/assets/b4008141-9dde-4e3e-b28c-81ab3701c642" /><img width="100" height="100" alt="Chest" src="https://github.com/user-attachments/assets/b4008141-9dde-4e3e-b28c-81ab3701c642" /><img width="100" height="100" alt="Chest" src="https://github.com/user-attachments/assets/b4008141-9dde-4e3e-b28c-81ab3701c642" /><img width="100" height="100" alt="Chest" src="https://github.com/user-attachments/assets/b4008141-9dde-4e3e-b28c-81ab3701c642" />
+
 ---
 # Índice
 
