@@ -116,7 +116,7 @@ ALTER SCHEMA nombre_del_esquema RENAME TO nuevo_nombre_del_esquema;
 ## ¿Cómo cambio el propietario del esquema?
 
 ```sql
-ALTER SCHEMA nombre_del_esquema OWNER TO gerente_db;
+ALTER SCHEMA nombre_del_esquema OWNER TO nuevo_duenno;
 ```
 
 ## ¿Cómo borro un esquema?
@@ -213,6 +213,46 @@ TRUNCATE TABLE nombre_del_esquema.nombretabla;
 ## Comandos básicos del LMD
 
 ### Consultar datos
+
+```sql
+SELECT * FROM nombre_esquema.nombre_tabla;
+```
+
+Muestra todos los registros de la tabla.
+
+---
+
+### Consultar columnas específicas
+
+```sql
+SELECT nombre, edad
+FROM nombre_esquema.nombre_tabla;
+```
+
+Muestra únicamente las columnas indicadas.
+
+---
+
+### Contar registros
+
+```sql
+SELECT COUNT(*)
+FROM nombre_esquema.nombre_tabla;
+```
+
+Cuenta cuántos registros existen en la tabla.
+
+---
+
+### Ordenar resultados
+
+```sql
+SELECT *
+FROM nombre_esquema.nombre_tabla
+ORDER BY edad DESC;
+```
+
+Ordena los resultados de mayor a menor según la columna edad.
 
 ```sql
 SELECT id, nombre, edad
