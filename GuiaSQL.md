@@ -422,7 +422,7 @@ GRANT CONNECT ON DATABASE ElnombreDElaBase TO nombre_rol;
 GRANT USAGE ON SCHEMA nombre_esquema TO nombre_rol;
 ```
 
-## Uso + creación de objetos
+## Otorgar permisos específicos sobre un esquema a un rol
 
 ```sql
 GRANT USAGE, CREATE ON SCHEMA nombre_esquema TO nombre_rol;
