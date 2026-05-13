@@ -1,7 +1,18 @@
 # PostgreSQL
 Guía básica de PostgreSQL para sentirte como todo un DBA que domina el PGAdmin y trabaja para una gran empresa
 ---
-##
+# Índice
+
+- [Capitulo 1. ¿Cómo entrar a PostgreSQL?](#capitulo-1-cómo-entrar-a-postgresql)
+- [Capitulo 2. La Base De Datos](#capitulo-2-la-base-de-datos)
+- [Capitulo 3. Los Esquemas](#capitulo-3-los-esquemas)
+- [Capitulo 4. LDD](#capitulo-4-ldd)
+- [Capitulo 5. LMD](#capitulo-5-lmd)
+- [Capitulo 6. Roles](#capitulo-6-roles)
+- [Capitulo 6.1/2 Pruebas de Permisos](#capitulo-612-pruebas-de-permisos)
+- [Capitulo 7. Generalidades](#capitulo-7-generalidades)
+
+
 ---
 
 # Capitulo 1. ¿Cómo entrar a PostgreSQL?:
@@ -136,7 +147,7 @@ REVOKE CONNECT ON DATABASE ElnombreDElaBase FROM PUBLIC;
 
 ---
 
-# Capitulo 4. Las Tablas LDD
+# Capitulo 4. LDD
 
 ## Crear la tabla
 
@@ -429,9 +440,164 @@ GRANT SELECT, INSERT, UPDATE, DELETE
 ON TABLES TO nombre_rol;
 ```
 
+---
+
+## Crear roles jerárquicos
+
+```sql
+CREATE ROLE empleado;
+
+CREATE ROLE supervisor;
+```
+
+---
+
+## Heredar permisos
+
+```sql
+GRANT empleado TO supervisor;
+```
+
+Nota: supervisor heredará automáticamente todos los permisos asignados a empleado.
+
+---
+
+## Verificar herencia
+
+```sql
+\du
+```
+
+Con eso se ven qué roles heredan permisos de otros
+
 ### Todos los privilegios
 
 ```sql
 ALTER DEFAULT PRIVILEGES IN SCHEMA nombre_esquema
 GRANT ALL PRIVILEGES ON TABLES TO nombre_rol;
 ```
+---
+
+# Capitulo 6.1/2 Pruebas de Permisos 
+
+Hay que probar la vara para sacar 100%
+
+---
+## Iniciar sesión con un usuario 
+
+```bash
+psql -U fulano -d ElNombreDelaBase -h localhost -W
+```
+
+Nota: Esto permite conectarse directamente con el usuario que queremos probar.
+
+---
+
+## Probar lectura de datos
+
+```sql
+SELECT * FROM nombre_del_esquema.nombretabla;
+```
+
+Si el usuario tiene permiso SELECT, podrá visualizar los registros.
+
+---
+
+## Probar inserción de datos
+
+```sql
+INSERT INTO nombre_del_esquema.nombretabla (nombre, edad) VALUES ('Artyom', 25);
+```
+
+## Ver el usuario actual conectado
+
+```sql
+SELECT current_user;
+```
+
+Util por si tiene la memoria que yo tengo
+
+---
+
+## Cambiar temporalmente de rol
+
+```sql
+SET ROLE nombre_rol;
+```
+
+---
+
+## Volver al rol original
+
+```sql
+RESET ROLE;
+```
+
+
+# Capitulo 7. Generalidades
+
+Estos comandos ayudan muchísimo cuando uno se pierde o quiere revisar rápidamente qué existe dentro de PostgreSQL.
+
+---
+
+## Ver bases de datos
+
+```sql
+\l
+```
+
+Muestra todas las bases de datos existentes dentro del servidor PostgreSQL.
+---
+
+## Cambiar de base de datos
+
+```sql
+\c nombre_bd
+```
+
+Permite conectarse a otra base de datos desde psql.
+
+---
+
+## Ver esquemas
+
+```sql
+\dn
+```
+
+Muestra todos los esquemas de la base de datos actual.
+
+---
+
+## Ver tablas
+
+```sql
+\dt
+```
+
+Muestra todas las tablas existentes en la base de datos actual.
+
+---
+
+## Ver roles
+
+```sql
+\du
+```
+
+Muestra todos los usuarios y roles creados en PostgreSQL junto con sus permisos.
+
+---
+
+## Ver estructura de una tabla
+
+```sql
+\d nombre_tabla
+```
+
+Muestra la estructura completa de una tabla
+
+# Gracias por leer
+
+
+
