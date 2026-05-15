@@ -20,12 +20,33 @@ Guía básica de PostgreSQL para sentirte como todo un DBA que domina el PGAdmin
 
 # Capitulo 1. ¿Cómo entrar a PostgreSQL?:
 
+### Conexión Nativa:
+
+Para meterse al nativo de forma rapida:
 ```bash
-sudo su
+sudo -u postgres psql -d postgres
+```
+Desgloce del comando
+```bash
+sudo -u nombreusuario psql -d ElNombreDelaBase
+```
+NOTA: Si no se ha creado nada, pues este comando no sirve
 
--i -u postgres
+---
 
-psql
+### Mediante un Contenedor
+
+Primero, hay que crear el contenedor si no tienes uno
+```bash
+ docker run --name ElNombreDelContenedor -e POSTGRES_PASSWORD=lacontraseñaaingresar -d -p IpQueQuieraUsar:5432 postgres
+```
+Segundo, Nos conectamos a la BD postgres con un Usuario: 
+```bash
+docker exec -it ElNombreDelContenedor psql -d ElNombreDelaBase -U nombreusuario
+```
+⚠️⚠️⚠️Si no hay ningun usuario creado use el usuario por defecto `postgres`
+ ```bash
+docker exec -it ElNombreDelContenedor psql -d ElNombreDelaBase -U postgres
 ```
 
 ---
@@ -47,7 +68,7 @@ ALTER DATABASE ElNombreDelaBase RENAME TO ElNuevoNombreDelaBase;
 ## ¿Cómo borro una Base de Datos?
 
 ```sql
-DROP DATABASE MiBaseDeDatos;
+DROP DATABASE ElNombreDelaBase;
 ```
 
 ---
@@ -57,13 +78,13 @@ DROP DATABASE MiBaseDeDatos;
 ### Selecciona la base de datos a usar
 
 ```sql
-USE ElnombreDElaBase;
+USE ElNombreDElaBase;
 ```
 
 ### Para Acceder a esta:
 
 ```sql
-\c  ElnombreDElaBase;
+\c  ElNombreDelaBase;
 ```
 
 ---
@@ -75,7 +96,7 @@ USE ElnombreDElaBase;
 primero conectamos con la base
 
 ```sql
-\c  ElnombreDElaBase;
+\c  ElNombreDelaBase;
 ```
 
 luego
@@ -87,7 +108,7 @@ REVOKE CREATE ON SCHEMA public FROM PUBLIC;
 Nota: Nadie crea objetos en el esquema público.
 
 ```sql
-REVOKE CONNECT ON DATABASE ElnombreDElaBase FROM PUBLIC;
+REVOKE CONNECT ON DATABASE ElNombreDelaBase FROM PUBLIC;
 ```
 
 Nota: Nadie se conecta sin permiso explícito.
@@ -99,7 +120,7 @@ Nota: Nadie se conecta sin permiso explícito.
 Crea un nuevo esquema dentro de la base de datos.
 
 ```sql
-\c  ElnombreDElaBase;
+\c  ElNombreDelaBase;
 ```
 
 Nota: Para elegir donde lo vamos a crear
@@ -145,7 +166,7 @@ REVOKE CREATE ON SCHEMA public FROM PUBLIC;
 ```
 
 ```sql
-REVOKE CONNECT ON DATABASE ElnombreDElaBase FROM PUBLIC;
+REVOKE CONNECT ON DATABASE ElNombreDelaBase FROM PUBLIC;
 ```
 
 ---
