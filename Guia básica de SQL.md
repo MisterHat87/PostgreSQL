@@ -638,6 +638,11 @@ Muestra todos los esquemas de la base de datos actual.
 ```sql
 \dt
 ```
+Muestra una tabla en especifico 
+```sql
+\dt nombretabla
+```
+
 
 Muestra todas las tablas existentes en la base de datos actual.
 
